@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Add your own Capture event handlers. To see the full list, run the following in the browser console: janrain.events  -->
+	<script src="scripts/janrain-init.js"></script>
+	<script type="text/javascript">
+	// --- page-specific settings -------------------------------------
+        janrain.settings.capture.stylesheets = ['styles/janrain.css'];
+        janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
+        janrain.settings.capture.screenToRender = 'editProfile';
+
+		function janrainCaptureWidgetOnLoad() {
+			// --- define event handlers --------------------------------------
+			janrain.events.onCaptureSessionEnded.addHandler(function(result){
+				window.location = 'index.html';
+			});
+			janrain.events.onCaptureAccessDenied.addHandler(function(){
+				window.location = 'index.html';
+			});
+			janrain.events.onCaptureExpiredToken.addHandler(function(){
+				window.location = 'index.html';
+			});
+
+			janrain.capture.ui.start();
+		}
+	</script>
+
+</head>
+<body>
+
+	<!-- Add the class 'capture_end_session' for the log out link -->
+	<a href="#" id="capture_signout_link" class="capture_end_session" style="display:none">Sign Out</a>
+	<hr/>
+
+	<!--  Inserted text from edit-profile-layout.html  -->
+	<div style="display:none;" id="editProfile">
+	    <h1>Edit Your Account</h1>
+	    <div class="capture_grid_block">
+	        <div class="capture_col_4">
+	            <div class="contentBoxWhiteShadow">
+	                <a href="#" data-capturescreen="socialNetworks">Social Networks</a>
+	            </div>
+	            <!-- Only show this if it was from a traditional login !-->
+	            <div class="janrain_traditional_account_only contentBoxWhiteShadow">
+	                <a href="#" data-capturescreen="changePassword">Change Password</a>
+	            </div>
+	            <div class="contentBoxWhiteShadow">
+	                <a href="#" data-capturescreen="communicationPrefs">Communication Preferences</a>
+	            </div>
+	        </div>
+	        <div class="capture_col_8">
+	            <h3>Account Info</h3>
+	            <div class="contentBoxWhiteShadow">
+	                <div class="capture_grid_block">
+	                    <div class="capture_center_col capture_col_8">
+	                        <div class="capture_editCol">
+	                            {* editProfileForm *}
+	                                {* firstName *}
+	                                {* lastName *}
+	                                {* email_readOnly *}
+	                                {* displayName *}
+	                                {* gender *}
+                                    {* phone *}
+	                                <br/>
+	                                <div>
+	                                    <label>Country</label>
+	                                    <br/>
+	                                    {* address_countryReadOnly *}
+	                                </div>
+	                                <br/>
+	                                {* address_address1 *}
+	                                {* address_address2 *}
+	                                {* address_city *}
+	                                {* address_state *}
+	                                {* address_zip *}
+	                                {* address_country_hidden *}
+	                                <div class="capture_form_item">
+	                                    {* saveButton *}
+	                                    {* savedProfileMessage *}
+	                                </div>
+	                            {* /editProfileForm *}
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div style="display:none;" id="changePassword">
+	    <div class="capture_header">
+	        <h1>Change password</h1>
+	    </div>
+	    {* newPasswordFormChange *}
+	        {* oldpassword *}
+	        {* newpassword *}
+	        {* newpasswordConfirm *}
+	        <div class="capture_footer">
+	            {* saveButton *}
+	        </div>
+	    {* /newPasswordFormChange *}
+	    <a href="#" data-capturescreen="editProfile">Cancel</a>
+	</div>
+	<div style="display:none;" id="changePasswordSuccess">
+	    <div class="capture_header">
+	        <h1>You did it!</h1>
+	    </div>
+	      <p>Your password has been successfully changed.</p>
+	    <div class="capture_footer">
+	        <a href="#" data-capturescreen="editProfile">OK</a>
+	    </div>
+	</div>
+	<div style="display: none;" id="publicProfileModal">
+	    <div class="capture_header">
+	        <h1>My profile</h1>
+	    </div>
+	    <div class="capture_grid_block">
+	        <div class="capture_col_6">
+	            <div class="capture_profile_pic">
+	                <div id="profile_pic" class="capture_default">
+	                    {* profilePhotoCustom *}
+	                </div>
+	            </div>
+	        </div>
+	        <div class="capture_col_6">
+	            <h2>{* public_displayName *}</h2>
+	            {* public_profileBlurb *}
+	        </div>
+	    </div>
+	    {* public_name *}
+	    {* public_emailAddress *}
+	    {* public_phoneNumber *}
+	    {* public_address *}
+	    {* public_gender *}
+	    {* public_birthdate *}
+	    <div class="capture_footer">
+	        <div class="capture_right">
+	            <a href="#" onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">Close</a>
+	        </div>
+	    </div>
+	</div>
+	<div style="display:none;" id="resendVerification">
+	    {* #resendVerificationForm *}
+	        <div class="capture_header">
+	            <h1>Verify your email address</h1>
+	        </div>
+	        <p>Hi, you still need to confirm your email address before continuing.</p>
+	        <p>Click the link in the email we sent you when you signed up</p>
+	        <p>- OR -</p>
+	        <p>We can resend the link.</p>
+	        <div class="capture_signin">
+	            {* resendVerificationButton *}
+	        </div>
+	    {* /resendVerificationForm *}
+	</div>
+	<div style="display:none;" id="resendVerificationSuccess">
+	    <div class="capture_header">
+	        <h1>We have sent a new verification code</h1>
+	    </div>
+	</div>
+
+	<!--== COMMUNICATION PREFS ==================================================-->
+	<div style="display:none;" id="communicationPrefs">
+	    <div class="capture_header">
+	        <h1>Communication Preferences</h1>
+	    </div>
+	    {* #communicationPrefsForm *}
+	        {* emailOptIn *}
+	        {* saveButton *}
+	    {* /communicationPrefsForm *}
+	    <a href="edit-profile.html">Back</a>
+	</div>
+
+	<!--== SOCIAL NETWORKS ======================================================-->
+	<div style="display:none;" id="socialNetworks">
+	    <div class="capture_header">
+	        <h1>Social Networks</h1>
+	    </div>
+	    {* socialNetworksForm *}
+	        <div class="contentBoxWhiteShadow">
+                    {* linkedAccounts *}
+                    {* #linkAccountContainer *}
+                        <div class="capture_header">
+                            <h1>Link your accounts</h1>
+                        </div>
+                        <div class="capture_signin">
+                            {* loginWidget *}
+                        </div>
+                    {* /linkAccountContainer *}
+                </div>
+	    {* /socialNetworksForm *}
+	    
+	</div>
+
+
+</body>
+</html>
