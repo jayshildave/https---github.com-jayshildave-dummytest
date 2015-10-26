@@ -11,64 +11,69 @@
 
 		function janrainCaptureWidgetOnLoad() {
 		createJanrainBridge();
-            // --- define event handlers --------------------------------------
-			janrain.events.onCaptureLoginSuccess.addHandler(function(result){
-				document.getElementById("signIn").style.display='none';
-                document.getElementById("returnSocial").style.display='none';
-                document.getElementById("returnTraditional").style.display='none';
-				document.getElementById("capture_signin_link").style.display='none';
-				document.getElementById("capture_signout_link").style.display='';
-				document.getElementById("capture_profile_link").style.display='';
-			});
-			janrain.events.onCaptureSessionFound.addHandler(function(result){
-				document.getElementById("capture_signin_link").style.display='none';
-				document.getElementById("capture_signout_link").style.display='';
-				document.getElementById("capture_profile_link").style.display='';
-			});
-			janrain.events.onCaptureRegistrationSuccess.addHandler(function(result){
-				document.getElementById("socialRegistration").style.display='none';
-                document.getElementById("traditionalRegistration").style.display='none';
-				document.getElementById("capture_signin_link").style.display='none';
-				document.getElementById("capture_signout_link").style.display='';
-				document.getElementById("capture_profile_link").style.display='';
-			});
-			janrain.events.onCaptureSessionEnded.addHandler(function(result){
-				document.getElementById("capture_signin_link").style.display='';
-				document.getElementById("capture_signout_link").style.display='none';
-				document.getElementById("capture_profile_link").style.display='none';
-			});
-			janrain.events.onCaptureScreenShow.addHandler(function(result){
-				if (result.screen == "returnTraditional") {
-					janrainReturnExperience();
-				}
-			});
-            janrain.events.onCaptureScreenShow.addHandler(function(result){
-                var resultScreen = result.screen;
-				if (resultScreen == "legalAcceptances" || resultScreen == "requirementsScreen") {
-					var residentValue = document.getElementById("capture_"+resultScreen+"_hidden_isResident").value;
-                    if (residentValue && residentValue == "US") {
-                        document.getElementById("capture_" + resultScreen + "_residency").checked = true;
-                    }
-				}
-			});
-			janrain.events.onCaptureLoginFailed.addHandler(function(result){
-                if (result.statusMessage == "accountDeactivated") {
-                    // janrain.capture.ui.modal.close();
-                    janrain.capture.ui.renderScreen('deactivatedAccount');
-                }
-            });
-			// Handle redirect if user receieved the requirements screen.
-			janrain.events.onCaptureProfileSaveSuccess.addHandler(function(result){
-				document.getElementById("capture_signin_link").style.display='none';
-				document.getElementById("capture_signout_link").style.display='';
-				document.getElementById("capture_profile_link").style.display='';
-			});
+		janrain.capture.ui.start();
 
-            janrain.capture.ui.registerFunction('passwordValidation', passwordValidation);
-			janrain.capture.ui.registerFunction('emailValidation', emailValidation);
-            janrain.capture.ui.registerFunction('addressValidation', addressValidation);
-            
-			janrain.capture.ui.start();
+                janrain.events.onCaptureSessionEnded.addHandler(function(result){
+                    janrain.capture.ui.renderScreen('signIn')
+                });
+            <!--// -&#45;&#45; define event handlers &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+			<!--janrain.events.onCaptureLoginSuccess.addHandler(function(result){-->
+				<!--document.getElementById("signIn").style.display='none';-->
+                <!--document.getElementById("returnSocial").style.display='none';-->
+                <!--document.getElementById("returnTraditional").style.display='none';-->
+				<!--document.getElementById("capture_signin_link").style.display='none';-->
+				<!--document.getElementById("capture_signout_link").style.display='';-->
+				<!--document.getElementById("capture_profile_link").style.display='';-->
+			<!--});-->
+			<!--janrain.events.onCaptureSessionFound.addHandler(function(result){-->
+				<!--document.getElementById("capture_signin_link").style.display='none';-->
+				<!--document.getElementById("capture_signout_link").style.display='';-->
+				<!--document.getElementById("capture_profile_link").style.display='';-->
+			<!--});-->
+			<!--janrain.events.onCaptureRegistrationSuccess.addHandler(function(result){-->
+				<!--document.getElementById("socialRegistration").style.display='none';-->
+                <!--document.getElementById("traditionalRegistration").style.display='none';-->
+				<!--document.getElementById("capture_signin_link").style.display='none';-->
+				<!--document.getElementById("capture_signout_link").style.display='';-->
+				<!--document.getElementById("capture_profile_link").style.display='';-->
+			<!--});-->
+			<!--janrain.events.onCaptureSessionEnded.addHandler(function(result){-->
+				<!--document.getElementById("capture_signin_link").style.display='';-->
+				<!--document.getElementById("capture_signout_link").style.display='none';-->
+				<!--document.getElementById("capture_profile_link").style.display='none';-->
+			<!--});-->
+			<!--janrain.events.onCaptureScreenShow.addHandler(function(result){-->
+				<!--if (result.screen == "returnTraditional") {-->
+					<!--janrainReturnExperience();-->
+				<!--}-->
+			<!--});-->
+            <!--janrain.events.onCaptureScreenShow.addHandler(function(result){-->
+                <!--var resultScreen = result.screen;-->
+				<!--if (resultScreen == "legalAcceptances" || resultScreen == "requirementsScreen") {-->
+					<!--var residentValue = document.getElementById("capture_"+resultScreen+"_hidden_isResident").value;-->
+                    <!--if (residentValue && residentValue == "US") {-->
+                        <!--document.getElementById("capture_" + resultScreen + "_residency").checked = true;-->
+                    <!--}-->
+				<!--}-->
+			<!--});-->
+			<!--janrain.events.onCaptureLoginFailed.addHandler(function(result){-->
+                <!--if (result.statusMessage == "accountDeactivated") {-->
+                    <!--// janrain.capture.ui.modal.close();-->
+                    <!--janrain.capture.ui.renderScreen('deactivatedAccount');-->
+                <!--}-->
+            <!--});-->
+			<!--// Handle redirect if user receieved the requirements screen.-->
+			<!--janrain.events.onCaptureProfileSaveSuccess.addHandler(function(result){-->
+				<!--document.getElementById("capture_signin_link").style.display='none';-->
+				<!--document.getElementById("capture_signout_link").style.display='';-->
+				<!--document.getElementById("capture_profile_link").style.display='';-->
+			<!--});-->
+
+            <!--janrain.capture.ui.registerFunction('passwordValidation', passwordValidation);-->
+			<!--janrain.capture.ui.registerFunction('emailValidation', emailValidation);-->
+            <!--janrain.capture.ui.registerFunction('addressValidation', addressValidation);-->
+            <!-- -->
+			<!--janrain.capture.ui.start();-->
 		}
 	</script>
 	
