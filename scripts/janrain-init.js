@@ -42,12 +42,15 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.clientId = '35xtjyb9t659h47727rhpcmzv3vqktpc';
     janrain.settings.capture.flowVersion = 'HEAD';
     janrain.settings.capture.registerFlow = 'socialRegistration';
+    janrain.settings.capture.setProfileData = '';
+    janrain.settings.capture.mobileStylesheets = ['styles/janrain-demo-mobile.css'];
+    janrain.settings.capture.confirmModalClose = '';
+    janrain.settings.type = 'embed';
     janrain.settings.capture.setProfileCookie = true;
     janrain.settings.capture.keepProfileCookieAfterLogout = true;
     janrain.settings.capture.modalCloseHtml = '<span class="janrain-icon-16 janrain-icon-ex2"></span>';
     janrain.settings.capture.noModalBorderInlineCss = true;
     janrain.settings.capture.responseType = 'token';
-    janrain.settings.capture.returnExperienceUserData = ['displayName'];
     janrain.settings.capture.hasSettings = true;
     janrain.settings.capture.transactionTimeout = 10000;
     janrain.settings.capture.recaptchaPublicKey = '6LeVKb4SAAAAAGv-hg5i6gtiOV4XrLuCDsJOnYoP';
