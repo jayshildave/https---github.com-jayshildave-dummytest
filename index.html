@@ -69,10 +69,14 @@
                 e.type = 'text/javascript';
                 e.id = 'janrainAuthWidget';
 
-                var url = document.location.protocol === 'https:' ? 'https://' : 'http://';
-                url += 'd16s8pqtk4uodx.cloudfront.net';
-                url += '/capturewidget/load.js';
-                e.src = url;
+                var e = document.createElement('script');
+                e.type = 'text/javascript';
+                e.id = 'janrainAuthWidget';
+                if (document.location.protocol === 'https:') {
+                    e.src = httpsLoadUrl;
+                } else {
+                    e.src = httpLoadUrl;
+                }
                 
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(e, s);
