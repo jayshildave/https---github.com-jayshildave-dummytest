@@ -24,7 +24,6 @@ For more information about these settings, see the following documents:
     janrain.settings.language = 'en';
     janrain.settings.appUrl = 'https://auth.mycokerewards.com';
     janrain.settings.capture.redirectUri = location.href;
-    janrain.settings.tokenAction = 'event';
     janrain.settings.borderColor = '#ffffff';
     janrain.settings.fontFamily = 'Helvetica, Lucida Grande, Verdana, sans-serif';
     janrain.settings.width = 300;
@@ -51,8 +50,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.modalCloseHtml = '<span class="janrain-icon-16 janrain-icon-ex2"></span>';
     janrain.settings.capture.noModalBorderInlineCss = true;
     janrain.settings.capture.responseType = 'token';
-    janrain.settings.capture.hasSettings = true;
-    janrain.settings.capture.transactionTimeout = 10000;
+
     janrain.settings.capture.recaptchaPublicKey = '6LeVKb4SAAAAAGv-hg5i6gtiOV4XrLuCDsJOnYoP';
 
     // --- Mobile WebView ------------------------------------------------------
