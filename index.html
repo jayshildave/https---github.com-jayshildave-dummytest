@@ -10,6 +10,9 @@
         janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
 
 		function janrainCaptureWidgetOnLoad() {
+
+		    createJanrainBridge();
+			janrain.capture.ui.start();
             // --- define event handlers --------------------------------------
 			janrain.events.onCaptureLoginSuccess.addHandler(function(result){
 				document.getElementById("signIn").style.display='none';
@@ -66,8 +69,7 @@
             janrain.capture.ui.registerFunction('passwordValidation', passwordValidation);
 			janrain.capture.ui.registerFunction('emailValidation', emailValidation);
             janrain.capture.ui.registerFunction('addressValidation', addressValidation);
-            
-			janrain.capture.ui.start();
+
 		}
 	</script>
 	
@@ -395,6 +397,6 @@
 </div>
 
 
-
+    <script src="scripts/janrain-bridge.js"></script>
 </body>
 </html>
