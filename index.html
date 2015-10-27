@@ -16,12 +16,12 @@
                 window.janrain.settings = {};
                 window.janrain.settings.capture = {};
 
-                janrain.settings.appUrl = 'https://ccna-dev.rpxnow.com';
+                janrain.settings.appUrl = 'https://auth.mycokerewards.com';
                 janrain.settings.capture.redirectUri = location.href;
-                janrain.settings.capture.appId= 'jlhglafgneegodfflaef';
+                janrain.settings.capture.appId= 'up7d9ae7uazsymyds8er4w6r3h';
                 janrain.settings.capture.clientId = '35xtjyb9t659h47727rhpcmzv3vqktpc';
                 janrain.settings.capture.responseType = 'token';
-                janrain.settings.capture.captureServer = 'https://ccna-dev.janraincapture.com';
+                janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
                 janrain.settings.capture.registerFlow = 'socialMobileRegistration';
                 janrain.settings.capture.flowVersion = 'HEAD';
                 janrain.settings.capture.flowName = 'webViewSignIn';
@@ -69,15 +69,6 @@
                 e.type = 'text/javascript';
                 e.id = 'janrainAuthWidget';
 
-                var e = document.createElement('script');
-                e.type = 'text/javascript';
-                e.id = 'janrainAuthWidget';
-
-                var url = document.location.protocol === 'https:' ? 'https://' : 'http://';
-                url += 'widgets-cdn.rpxnow.com';
-                url += '/load/ccna-dev/';
-                e.src = url;
-                
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(e, s);
             })();
