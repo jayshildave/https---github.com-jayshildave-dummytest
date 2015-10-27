@@ -54,10 +54,10 @@ For more information about these settings, see the following documents:
 
     // --- Mobile WebView ------------------------------------------------------
 
-    //janrain.settings.capture.redirectFlow = true;
-    //janrain.settings.popup = false;
-    //janrain.settings.tokenAction = 'url';
-    //janrain.settings.capture.registerFlow = 'socialMobileRegistration'
+    janrain.settings.capture.redirectFlow = true;
+    janrain.settings.popup = false;
+    janrain.settings.tokenAction = 'url';
+    janrain.settings.capture.registerFlow = 'socialMobileRegistration'
 
     // --- Federate  -----------------------------------------------------------
 
