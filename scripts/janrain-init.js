@@ -23,7 +23,7 @@ For more information about these settings, see the following documents:
 
     janrain.settings.language = 'en';
     janrain.settings.appUrl = 'https://auth.mycokerewards.com';
-    janrain.settings.tokenUrl = 'http://localhost/';
+
     janrain.settings.tokenAction = 'event';
     janrain.settings.borderColor = '#ffffff';
     janrain.settings.fontFamily = 'Helvetica, Lucida Grande, Verdana, sans-serif';
@@ -38,6 +38,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.flowName = 'ccna_default_v3';
     janrain.settings.capture.appId = 'up7d9ae7uazsymyds8er4w6r3h';
     janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
+    janrain.settings.tokenUrl = janrain.settings.capture.captureServer;
     janrain.settings.capture.redirectUri = 'http://localhost/';
     janrain.settings.capture.clientId = '35xtjyb9t659h47727rhpcmzv3vqktpc';
     janrain.settings.capture.flowVersion = 'HEAD';
@@ -58,6 +59,8 @@ For more information about these settings, see the following documents:
     janrain.settings.popup = false;
     janrain.settings.tokenAction = 'url';
     janrain.settings.capture.registerFlow = 'socialMobileRegistration'
+    janrain.settings.type = 'embed';
+    janrain.settings.redirectUri = location.href;
 
     // --- Federate  -----------------------------------------------------------
 
