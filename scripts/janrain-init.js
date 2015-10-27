@@ -25,6 +25,7 @@ For more information about these settings, see the following documents:
     janrain.settings.appUrl = 'https://auth.mycokerewards.com';
     janrain.settings.capture.redirectUri = location.href;
     janrain.settings.borderColor = '#ffffff';
+    janrain.settings.backgroundColor = '#ffffff';
     janrain.settings.fontFamily = 'Helvetica, Lucida Grande, Verdana, sans-serif';
     janrain.settings.width = 300;
     janrain.settings.actionText = ' ';
@@ -47,8 +48,11 @@ For more information about these settings, see the following documents:
     janrain.settings.type = 'embed';
     janrain.settings.capture.setProfileCookie = true;
     janrain.settings.capture.keepProfileCookieAfterLogout = true;
+    janrain.settings.capture.modalBorderOpacity = 1;
+    janrain.settings.capture.modalBorderWidth = 5;
+    janrain.settings.capture.modalBorderRadius = 5;
     janrain.settings.capture.modalCloseHtml = '<span class="janrain-icon-16 janrain-icon-ex2"></span>';
-    janrain.settings.capture.noModalBorderInlineCss = true;
+    janrain.settings.capture.modalBorderColor = '#7AB433';
     janrain.settings.capture.responseType = 'token';
 
     janrain.settings.capture.recaptchaPublicKey = '6LeVKb4SAAAAAGv-hg5i6gtiOV4XrLuCDsJOnYoP';
