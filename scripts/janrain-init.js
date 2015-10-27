@@ -43,7 +43,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.flowVersion = 'HEAD';
     janrain.settings.capture.registerFlow = 'socialRegistration';
     janrain.settings.capture.setProfileData = '';
-    janrain.settings.capture.mobileStylesheets = ['styles/janrain-demo-mobile.css'];
+    janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
     janrain.settings.capture.confirmModalClose = '';
     janrain.settings.type = 'embed';
     janrain.settings.capture.setProfileCookie = true;
