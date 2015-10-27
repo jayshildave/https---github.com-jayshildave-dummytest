@@ -1,123 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<!-- Add your own Capture event handlers. To see the full list, run the following in the browser console: janrain.events  -->
+
+    <!-- Add your own Capture event handlers. To see the full list, run the following in the browser console: janrain.events  -->
     <script src="scripts/janrain-init.js"></script>
-	<script type="text/javascript">
+    <script type="text/javascript">
     // --- page-specific settings -------------------------------------
         janrain.settings.capture.stylesheets = ['styles/janrain.css'];
         janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
 
 		function janrainCaptureWidgetOnLoad() {
-		createJanrainBridge();
-		janrain.capture.ui.start();
 
-                janrain.events.onCaptureSessionEnded.addHandler(function(result){
-                    janrain.capture.ui.renderScreen('signIn')
-                });
-            <!--// -&#45;&#45; define event handlers &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-			<!--janrain.events.onCaptureLoginSuccess.addHandler(function(result){-->
-				<!--document.getElementById("signIn").style.display='none';-->
-                <!--document.getElementById("returnSocial").style.display='none';-->
-                <!--document.getElementById("returnTraditional").style.display='none';-->
-				<!--document.getElementById("capture_signin_link").style.display='none';-->
-				<!--document.getElementById("capture_signout_link").style.display='';-->
-				<!--document.getElementById("capture_profile_link").style.display='';-->
-			<!--});-->
-			<!--janrain.events.onCaptureSessionFound.addHandler(function(result){-->
-				<!--document.getElementById("capture_signin_link").style.display='none';-->
-				<!--document.getElementById("capture_signout_link").style.display='';-->
-				<!--document.getElementById("capture_profile_link").style.display='';-->
-			<!--});-->
-			<!--janrain.events.onCaptureRegistrationSuccess.addHandler(function(result){-->
-				<!--document.getElementById("socialRegistration").style.display='none';-->
-                <!--document.getElementById("traditionalRegistration").style.display='none';-->
-				<!--document.getElementById("capture_signin_link").style.display='none';-->
-				<!--document.getElementById("capture_signout_link").style.display='';-->
-				<!--document.getElementById("capture_profile_link").style.display='';-->
-			<!--});-->
-			<!--janrain.events.onCaptureSessionEnded.addHandler(function(result){-->
-				<!--document.getElementById("capture_signin_link").style.display='';-->
-				<!--document.getElementById("capture_signout_link").style.display='none';-->
-				<!--document.getElementById("capture_profile_link").style.display='none';-->
-			<!--});-->
-			<!--janrain.events.onCaptureScreenShow.addHandler(function(result){-->
-				<!--if (result.screen == "returnTraditional") {-->
-					<!--janrainReturnExperience();-->
-				<!--}-->
-			<!--});-->
-            <!--janrain.events.onCaptureScreenShow.addHandler(function(result){-->
-                <!--var resultScreen = result.screen;-->
-				<!--if (resultScreen == "legalAcceptances" || resultScreen == "requirementsScreen") {-->
-					<!--var residentValue = document.getElementById("capture_"+resultScreen+"_hidden_isResident").value;-->
-                    <!--if (residentValue && residentValue == "US") {-->
-                        <!--document.getElementById("capture_" + resultScreen + "_residency").checked = true;-->
-                    <!--}-->
-				<!--}-->
-			<!--});-->
-			<!--janrain.events.onCaptureLoginFailed.addHandler(function(result){-->
-                <!--if (result.statusMessage == "accountDeactivated") {-->
-                    <!--// janrain.capture.ui.modal.close();-->
-                    <!--janrain.capture.ui.renderScreen('deactivatedAccount');-->
-                <!--}-->
-            <!--});-->
-			<!--// Handle redirect if user receieved the requirements screen.-->
-			<!--janrain.events.onCaptureProfileSaveSuccess.addHandler(function(result){-->
-				<!--document.getElementById("capture_signin_link").style.display='none';-->
-				<!--document.getElementById("capture_signout_link").style.display='';-->
-				<!--document.getElementById("capture_profile_link").style.display='';-->
-			<!--});-->
 
-            <!--janrain.capture.ui.registerFunction('passwordValidation', passwordValidation);-->
-			<!--janrain.capture.ui.registerFunction('emailValidation', emailValidation);-->
-            <!--janrain.capture.ui.registerFunction('addressValidation', addressValidation);-->
-            <!-- -->
-			<!--janrain.capture.ui.start();-->
+            // --- define event handlers --------------------------------------
+			janrain.events.onCaptureLoginSuccess.addHandler(function(result){
+				document.getElementById("signIn").style.display='none';
+                document.getElementById("returnSocial").style.display='none';
+                document.getElementById("returnTraditional").style.display='none';
+				document.getElementById("capture_signin_link").style.display='none';
+				document.getElementById("capture_signout_link").style.display='';
+				document.getElementById("capture_profile_link").style.display='';
+			});
+			janrain.events.onCaptureSessionFound.addHandler(function(result){
+				document.getElementById("capture_signin_link").style.display='none';
+				document.getElementById("capture_signout_link").style.display='';
+				document.getElementById("capture_profile_link").style.display='';
+			});
+			janrain.events.onCaptureRegistrationSuccess.addHandler(function(result){
+				document.getElementById("socialRegistration").style.display='none';
+                document.getElementById("traditionalRegistration").style.display='none';
+				document.getElementById("capture_signin_link").style.display='none';
+				document.getElementById("capture_signout_link").style.display='';
+				document.getElementById("capture_profile_link").style.display='';
+			});
+			janrain.events.onCaptureSessionEnded.addHandler(function(result){
+				document.getElementById("capture_signin_link").style.display='';
+				document.getElementById("capture_signout_link").style.display='none';
+				document.getElementById("capture_profile_link").style.display='none';
+			});
+			janrain.events.onCaptureScreenShow.addHandler(function(result){
+				if (result.screen == "returnTraditional") {
+					janrainReturnExperience();
+				}
+			});
+            janrain.events.onCaptureScreenShow.addHandler(function(result){
+                var resultScreen = result.screen;
+				if (resultScreen == "legalAcceptances" || resultScreen == "requirementsScreen") {
+					var residentValue = document.getElementById("capture_"+resultScreen+"_hidden_isResident").value;
+                    if (residentValue && residentValue == "US") {
+                        document.getElementById("capture_" + resultScreen + "_residency").checked = true;
+                    }
+				}
+			});
+			janrain.events.onCaptureLoginFailed.addHandler(function(result){
+                if (result.statusMessage == "accountDeactivated") {
+                    // janrain.capture.ui.modal.close();
+                    janrain.capture.ui.renderScreen('deactivatedAccount');
+                }
+            });
+			// Handle redirect if user receieved the requirements screen.
+			janrain.events.onCaptureProfileSaveSuccess.addHandler(function(result){
+				document.getElementById("capture_signin_link").style.display='none';
+				document.getElementById("capture_signout_link").style.display='';
+				document.getElementById("capture_profile_link").style.display='';
+			});
+
+            janrain.capture.ui.registerFunction('passwordValidation', passwordValidation);
+			janrain.capture.ui.registerFunction('emailValidation', emailValidation);
+            janrain.capture.ui.registerFunction('addressValidation', addressValidation);
+             createJanrainBridge();
+			janrain.capture.ui.start();
 		}
-	</script>
-	
+
+    </script>
+
 </head>
 <body>
-	<!-- The following links are meant to simulate elements already existing on your page. -->
-	<!-- Add the class 'capture_modal_open' to an anchor tag to initiate signin. -->
-	<a href="#" id="capture_signin_link" class="capture_modal_open">Sign In / Sign Up</a>
+<!-- The following links are meant to simulate elements already existing on your page. -->
+<!-- Add the class 'capture_modal_open' to an anchor tag to initiate signin. -->
+<a href="#" id="capture_signin_link" class="capture_modal_open">Sign In / Sign Up</a>
 
-	<!-- Link to the profile page as needed -->
-	<a href="edit-profile.html" id="capture_profile_link" style="display:none">Edit Profile</a><br /><br />
+<!-- Link to the profile page as needed -->
+<a href="edit-profile.html" id="capture_profile_link" style="display:none">Edit
+    Profile</a><br/><br/>
 
-	<!-- Add the class 'capture_end_session' for the log out link -->
-	<a href="#" id="capture_signout_link" class="capture_end_session" style="display:none">Sign Out</a>
-	<hr/>
+<!-- Add the class 'capture_end_session' for the log out link -->
+<a href="#" id="capture_signout_link" class="capture_end_session" style="display:none">Sign Out</a>
+<hr/>
 
-	<!-- During the development process, the configuration code will be loaded from Janrain servers so that we can help you customize it. When your site is ready to go live, the following script tag will be replaced with your customized javascript and HTML markup to provide the fastest possible user experience.-->
-	<!-- <script src="http://pse.janrain.com/customer_dev/20a52726bb2e/scripts/index.js" id="janrainCaptureDevScript"></script> -->
+<!-- During the development process, the configuration code will be loaded from Janrain servers so that we can help you customize it. When your site is ready to go live, the following script tag will be replaced with your customized javascript and HTML markup to provide the fastest possible user experience.-->
+<!-- <script src="http://pse.janrain.com/customer_dev/20a52726bb2e/scripts/index.js" id="janrainCaptureDevScript"></script> -->
 
-	<!--  Inserted text from index-layout.html  -->
+<!--  Inserted text from index-layout.html  -->
 
-	<div style="display:none;" id="signIn">
+<div style="display:none;" id="signIn">
     <div class="capture_header">
         <h1>Sign Up / Sign In</h1>
     </div>
     <div class="capture_signin">
         <h2>With your existing account from...</h2>
-        {* loginWidget *}<br />
+        {* loginWidget *}<br/>
     </div>
     <div class="capture_backgroundColor">
         <div class="capture_signin">
             <h2>With a traditional account...</h2>
-                {* #userInformationForm *}
-                    {* traditionalSignIn_emailAddress *}
-                    {* traditionalSignIn_password *}
-                    <div class="capture_form_item">
-                        <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
-                    </div>
-                    <div class="capture_rightText">
-                        {* traditionalSignIn_signInButton *}
-                    </div>
-                {* /userInformationForm *}
+            {* #userInformationForm *}
+            {* traditionalSignIn_emailAddress *}
+            {* traditionalSignIn_password *}
             <div class="capture_form_item">
-                <a href="#" data-capturescreen="traditionalRegistration">Not a member yet? Join now.</a>
+                <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
+            </div>
+            <div class="capture_rightText">
+                {* traditionalSignIn_signInButton *}
+            </div>
+            {* /userInformationForm *}
+            <div class="capture_form_item">
+                <a href="#" data-capturescreen="traditionalRegistration">Not a member yet? Join
+                    now.</a>
             </div>
         </div>
     </div>
@@ -128,8 +127,11 @@
     </div>
     <div class="capture_signin">
         <h2>Welcome back, {* welcomeName *}!</h2>
-        {* loginWidget *}<br />
-        <div class="capture_centerText switchLink"><a href="#" data-cancelcapturereturnexperience="true">Use another account</a></div>
+        {* loginWidget *}<br/>
+
+        <div class="capture_centerText switchLink"><a href="#"
+                                                      data-cancelcapturereturnexperience="true">Use
+            another account</a></div>
     </div>
 </div>
 <div style="display:none;" id="returnTraditional">
@@ -137,18 +139,21 @@
         <h1>Sign In</h1>
     </div>
     <h2 class="capture_centerText"><span id="traditionalWelcomeName">Welcome back!</span></h2>
-            <div class="capture_backgroundColor">
-                {* #userInformationForm *}
-                    {* traditionalSignIn_emailAddress *}
-                    {* traditionalSignIn_password *}
-                    <div class="capture_form_item">
-                        <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
-                    </div>
-                    <div class="capture_form_item capture_rightText">
-                        {* traditionalSignIn_signInButton *}
-                    </div>
-                {* /userInformationForm *}
-        <div class="capture_centerText switchLink"><a href="#" data-cancelcapturereturnexperience="true">Use another account</a></div>
+
+    <div class="capture_backgroundColor">
+        {* #userInformationForm *}
+        {* traditionalSignIn_emailAddress *}
+        {* traditionalSignIn_password *}
+        <div class="capture_form_item">
+            <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
+        </div>
+        <div class="capture_form_item capture_rightText">
+            {* traditionalSignIn_signInButton *}
+        </div>
+        {* /userInformationForm *}
+        <div class="capture_centerText switchLink"><a href="#"
+                                                      data-cancelcapturereturnexperience="true">Use
+            another account</a></div>
     </div>
 </div>
 
@@ -161,33 +166,33 @@
     <h2>Please confirm the information below before signing in.</h2>
     {* socialProviderFullName *}
     {* #socialRegistrationForm *}
-        {* socialRegistration_firstName *}
-        {* socialRegistration_lastName *}
-        {* socialRegistration_displayName *}
-        {* socialRegistration_emailAddress *}
-        {* birthdate *}
-        {* gender *}
-        {* address_address1 *}
-        {* address_address2 *}
-        {* address_city *}
-        {* address_state *}
-        {* address_zip *}
-        {* phone *}
-        {* residency *}
-        {* hidden_residencyData *}
-        {* hidden_languageData *}
-        {* hidden_accountStatus *}
-        {* hidden_provider *}
-        {* emailOptIn *}
-        By clicking "Join", you are confirming that you accept the 
-        <a href="#">Program Rules</a>,
-        <a href="#">Terms of Use</a>,
-        and <a href="#">Privacy Policy</a>.
-        <div class="capture_footer">
-            <div class="capture_right">
-                {* socialRegistration_signInButton *}
-            </div>
+    {* socialRegistration_firstName *}
+    {* socialRegistration_lastName *}
+    {* socialRegistration_displayName *}
+    {* socialRegistration_emailAddress *}
+    {* birthdate *}
+    {* gender *}
+    {* address_address1 *}
+    {* address_address2 *}
+    {* address_city *}
+    {* address_state *}
+    {* address_zip *}
+    {* phone *}
+    {* residency *}
+    {* hidden_residencyData *}
+    {* hidden_languageData *}
+    {* hidden_accountStatus *}
+    {* hidden_provider *}
+    {* emailOptIn *}
+    By clicking "Join", you are confirming that you accept the
+    <a href="#">Program Rules</a>,
+    <a href="#">Terms of Use</a>,
+    and <a href="#">Privacy Policy</a>.
+    <div class="capture_footer">
+        <div class="capture_right">
+            {* socialRegistration_signInButton *}
         </div>
+    </div>
     {* /socialRegistrationForm *}
 </div>
 
@@ -200,48 +205,50 @@
     <p>Already have an member? <a href="#" data-capturescreen="signIn">Sign In.</a>
     </p>
     {* #registrationForm *}
-        {* traditionalRegistration_firstName *}
-        {* traditionalRegistration_lastName *}
-        {* traditionalRegistration_displayName *}
-        {* traditionalRegistration_emailAddress *}
-        {* traditionalRegistration_emailConfirm *}
-        {* traditionalRegistration_password *}
-        {* birthdate *}
-        {* gender *}
-        {* address_address1 *}
-        {* address_address2 *}
-        {* address_city *}
-        {* address_state *}
-        {* address_zip *}
-        {* residency *}
-        {* phone *}
-        {* hidden_residencyData *}
-        {* hidden_languageData *}
-        {* hidden_accountStatus *}
-        {* emailOptIn *}
-        By clicking "Join", you are confirming that you accept the 
-        <a href="#">Program Rules</a>,
-        <a href="#">Terms of Use</a>,
-        and <a href="#">Privacy Policy</a>.
-	    {* captcha *}
-        <div class="capture_footer">
-            {* createAccountButton *}
-        </div>
+    {* traditionalRegistration_firstName *}
+    {* traditionalRegistration_lastName *}
+    {* traditionalRegistration_displayName *}
+    {* traditionalRegistration_emailAddress *}
+    {* traditionalRegistration_emailConfirm *}
+    {* traditionalRegistration_password *}
+    {* birthdate *}
+    {* gender *}
+    {* address_address1 *}
+    {* address_address2 *}
+    {* address_city *}
+    {* address_state *}
+    {* address_zip *}
+    {* residency *}
+    {* phone *}
+    {* hidden_residencyData *}
+    {* hidden_languageData *}
+    {* hidden_accountStatus *}
+    {* emailOptIn *}
+    By clicking "Join", you are confirming that you accept the
+    <a href="#">Program Rules</a>,
+    <a href="#">Terms of Use</a>,
+    and <a href="#">Privacy Policy</a>.
+    {* captcha *}
+    <div class="capture_footer">
+        {* createAccountButton *}
+    </div>
     {* /registrationForm *}
 </div>
 
 <!--== ACCOUNT DEACTIVATED =======================================================-->
-    <div style="display:none;" id="deactivatedAccount">
-        <div class="capture_header">
-            <h1>Account Deactivated</h1>
-            <br/>
-            We're sorry, your account has been locked, please contact a Coca-Cola CSR to resolve this issue.
-        </div>
+<div style="display:none;" id="deactivatedAccount">
+    <div class="capture_header">
+        <h1>Account Deactivated</h1>
+        <br/>
+        We're sorry, your account has been locked, please contact a Coca-Cola CSR to resolve this
+        issue.
     </div>
+</div>
 
 <!--== USER TOO YOUNG =======================================================-->
 <div style="display:none;" id="registrationUnderage">
-    <p>We're sorry, but we can't accept your entry at this time, and have not retained any of your personal information.</p>
+    <p>We're sorry, but we can't accept your entry at this time, and have not retained any of your
+        personal information.</p>
 </div>
 
 <!--== LEGAL ACCEPTANCES SCREEN ==================================================-->
@@ -250,29 +257,29 @@
         <h1>Legal Acceptance Screen</h1>
     </div>
     {* #legalAcceptancePostLoginForm *}
-        {* firstName *}
-        {* lastName *}
-        {* displayName *}
-        {* email_readOnly *}
-        {* address_address1 *}
-        {* address_address2 *}
-        {* address_city *}
-        {* address_state *}
-        {* address_zip *}
-        {* residency *}
-        {* hidden_accountStatus *}
-        {* hidden_residencyData *}
-        {* hidden_isResident *}
-        {* gender *}
-        {* phone *}
-        {* emailOptIn *}
-        By clicking "Join", you are confirming that you accept the
-        <a href="#">Program Rules</a>,
-        <a href="#">Terms of Use</a>,
-        and <a href="#">Privacy Policy</a>.
-        <div class="capture_footer">
-            {* legalAcceptanceAcceptButton *}
-        </div>
+    {* firstName *}
+    {* lastName *}
+    {* displayName *}
+    {* email_readOnly *}
+    {* address_address1 *}
+    {* address_address2 *}
+    {* address_city *}
+    {* address_state *}
+    {* address_zip *}
+    {* residency *}
+    {* hidden_accountStatus *}
+    {* hidden_residencyData *}
+    {* hidden_isResident *}
+    {* gender *}
+    {* phone *}
+    {* emailOptIn *}
+    By clicking "Join", you are confirming that you accept the
+    <a href="#">Program Rules</a>,
+    <a href="#">Terms of Use</a>,
+    and <a href="#">Privacy Policy</a>.
+    <div class="capture_footer">
+        {* legalAcceptanceAcceptButton *}
+    </div>
     {* /legalAcceptancePostLoginForm *}
 </div>
 
@@ -282,30 +289,30 @@
         <h1>Requirements Screen</h1>
     </div>
     {* #requirementsForm *}
-        {* firstName *}
-        {* lastName *}
-        {* displayName *}
-        {* email_readOnly *}
-        {* birthdate *}
-        {* address_address1 *}
-        {* address_address2 *}
-        {* address_city *}
-        {* address_state *}
-        {* address_zip *}
-        {* residency *}
-        {* hidden_accountStatus *}
-        {* hidden_residencyData *}
-        {* hidden_isResident *}
-        {* gender *}
-        {* phone *}
-        {* emailOptIn *}
-        By clicking "Join", you are confirming that you accept the
-        <a href="#">Program Rules</a>,
-        <a href="#">Terms of Use</a>,
-        and <a href="#">Privacy Policy</a>.
-        <div class="capture_footer">
-            {* requirementsSubmitButton *}
-        </div>
+    {* firstName *}
+    {* lastName *}
+    {* displayName *}
+    {* email_readOnly *}
+    {* birthdate *}
+    {* address_address1 *}
+    {* address_address2 *}
+    {* address_city *}
+    {* address_state *}
+    {* address_zip *}
+    {* residency *}
+    {* hidden_accountStatus *}
+    {* hidden_residencyData *}
+    {* hidden_isResident *}
+    {* gender *}
+    {* phone *}
+    {* emailOptIn *}
+    By clicking "Join", you are confirming that you accept the
+    <a href="#">Program Rules</a>,
+    <a href="#">Terms of Use</a>,
+    and <a href="#">Privacy Policy</a>.
+    <div class="capture_footer">
+        {* requirementsSubmitButton *}
+    </div>
     {* /requirementsForm *}
 </div>
 
@@ -316,13 +323,13 @@
     </div>
     <p>It's okay, we'll send you a reset form via email.</p>
     {* #forgotPasswordForm *}
-        {* traditionalSignIn_emailAddress *}
-    	{* captcha *}
-        <div class="capture_footer">
-            <div class="capture_right">
-                {* forgotPassword_sendButton *}
-            </div>
+    {* traditionalSignIn_emailAddress *}
+    {* captcha *}
+    <div class="capture_footer">
+        <div class="capture_right">
+            {* forgotPassword_sendButton *}
         </div>
+    </div>
     {* /forgotPasswordForm *}
     <a href="#" data-capturescreen="signIn">Cancel</a>
 </div>
@@ -330,31 +337,45 @@
     <div class="capture_header">
         <h1>Success!</h1>
     </div>
-      <p>A link to reset your password is waiting in your inbox. Please click on the link to sign in to your account.</p>
+    <p>A link to reset your password is waiting in your inbox. Please click on the link to sign in
+        to your account.</p>
+
     <div class="capture_footer">
         <a href="#" data-capturescreen="signIn">OK</a>
     </div>
 </div>
 <div style="display:none;" id="mergeAccounts">
     {* mergeAccounts {"custom": true} *}
-    <div id="capture_mergeAccounts_mergeAccounts_mergeOptionsContainer" class="capture_mergeAccounts_mergeOptionsContainer">
+    <div id="capture_mergeAccounts_mergeAccounts_mergeOptionsContainer"
+         class="capture_mergeAccounts_mergeOptionsContainer">
         <h1>Uh-oh!</h1>
+
         <div id="existing_account_found">
             <p>We found an existing account for</p>
+
             <p>{| current_emailAddress |}</p>
         </div>
         <div id="existing_account_info">
             <p>{| current_displayName |}</p>
+
             <p>{| existing_provider_emailAddress |}</p>
+
             <p>Created on {| existing_createdDate |}</p>
+
             <p>Type: Connected with {| existing_provider_lowerCase |}</p>
         </div>
         <hr/>
         <h2>Connect this session with your existing account?</h2>
+
         <p>You will need to sign in to your existing account.</p>
+
         <div class="capture_footer">
             <a href="#" data-capturescreen="signIn">Cancel</a>
-            <button id="capture_mergeAccounts_mergeAccounts_connectButton" class="capture_mergeAccounts_connectButton capture_btn capture_primary" type="button" data-capturefield="mergeAccounts_connectButton" name="mergeAccounts_connectButton">Connect</button>
+            <button id="capture_mergeAccounts_mergeAccounts_connectButton"
+                    class="capture_mergeAccounts_connectButton capture_btn capture_primary"
+                    type="button" data-capturefield="mergeAccounts_connectButton"
+                    name="mergeAccounts_connectButton">Connect
+            </button>
         </div>
     </div>
 </div>
@@ -363,7 +384,7 @@
         <h1>Sign in to complete account merge</h1>
     </div>
     <div class="capture_signin">
-    {* #tradAuthenticateMergeForm *}
+        {* #tradAuthenticateMergeForm *}
         {* traditionalSignIn_emailAddress *}
         {* mergePassword *}
         <div class="capture_footer">
@@ -374,7 +395,7 @@
                 {* traditionalSignIn_signInButton *}
             </div>
         </div>
-     {* /tradAuthenticateMergeForm *}
+        {* /tradAuthenticateMergeForm *}
     </div>
 </div>
 <div style="display:none;" id="emailVerificationScreen">
@@ -382,25 +403,28 @@
         <h1>Confirm your email</h1>
     </div>
     <p>We've sent an email to the email address you've provided.</p>
+
     <p>Click the link in the email to finish joining.</p>
+
     <p>If you haven't received it, wait a few more minutes, or have us resend the link.</p>
     {* #resendVerificationForm *}
-        <div class="capture_signin">
-            {* resendVerificationButton *}
-        </div>
+    <div class="capture_signin">
+        {* resendVerificationButton *}
+    </div>
     {* /resendVerificationForm *}
 </div>
 <div style="display:none;" id="resendVerificationSuccess">
     <div class="capture_header">
         <h1>Success!</h1>
     </div>
-    <p>A new confirmation link is waiting in your inbox. Please click on the link to confirm your email address.</p>
+    <p>A new confirmation link is waiting in your inbox. Please click on the link to confirm your
+        email address.</p>
 </div>
 <div style="display:none;" id="linkSocialProfileScreen">
     {* linkFacebook *}
 </div>
 
 
-    <script src="scripts/janrain-bridge.js"></script>
+<script src="scripts/janrain-bridge.js"></script>
 </body>
 </html>
