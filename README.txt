@@ -1,7 +1,7 @@
 This zip archive contains the code and customizations necessary to implement
 the Janrain Capture widget on your website. See the working demo at:
 
-    http://pse.janrain.com/customer_dev/20a52726bb2e/
+    http://pse.janrain.com/customer_dev/52433848ea55/
 
 
 Description of Files

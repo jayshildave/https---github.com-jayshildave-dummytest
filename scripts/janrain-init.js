@@ -23,9 +23,9 @@ For more information about these settings, see the following documents:
 
     janrain.settings.language = 'en';
     janrain.settings.appUrl = 'https://auth.mycokerewards.com';
-    janrain.settings.capture.redirectUri = location.href;
+    janrain.settings.tokenUrl = 'http://localhost/';
+    janrain.settings.tokenAction = 'event';
     janrain.settings.borderColor = '#ffffff';
-    janrain.settings.backgroundColor = '#ffffff';
     janrain.settings.fontFamily = 'Helvetica, Lucida Grande, Verdana, sans-serif';
     janrain.settings.width = 300;
     janrain.settings.actionText = ' ';
@@ -35,34 +35,29 @@ For more information about these settings, see the following documents:
 
     // --- Capture Widget ------------------------------------------------------
 
-    janrain.settings.capture.flowName = 'ccna_default_v3_embedded';
+    janrain.settings.capture.flowName = 'ccna_default_v3';
     janrain.settings.capture.appId = 'up7d9ae7uazsymyds8er4w6r3h';
     janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
-    janrain.settings.tokenUrl = janrain.settings.capture.captureServer;
+    janrain.settings.capture.redirectUri = 'http://localhost/';
     janrain.settings.capture.clientId = '35xtjyb9t659h47727rhpcmzv3vqktpc';
     janrain.settings.capture.flowVersion = 'HEAD';
     janrain.settings.capture.registerFlow = 'socialRegistration';
-    janrain.settings.capture.setProfileData = '';
-    janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
-    janrain.settings.capture.confirmModalClose = '';
-    janrain.settings.type = 'embed';
     janrain.settings.capture.setProfileCookie = true;
     janrain.settings.capture.keepProfileCookieAfterLogout = true;
-    janrain.settings.capture.modalBorderOpacity = 1;
-    janrain.settings.capture.modalBorderWidth = 5;
-    janrain.settings.capture.modalBorderRadius = 5;
     janrain.settings.capture.modalCloseHtml = '<span class="janrain-icon-16 janrain-icon-ex2"></span>';
-    janrain.settings.capture.modalBorderColor = '#7AB433';
+    janrain.settings.capture.noModalBorderInlineCss = true;
     janrain.settings.capture.responseType = 'token';
-
+    janrain.settings.capture.returnExperienceUserData = ['displayName'];
+    janrain.settings.capture.hasSettings = true;
+    janrain.settings.capture.transactionTimeout = 10000;
     janrain.settings.capture.recaptchaPublicKey = '6LeVKb4SAAAAAGv-hg5i6gtiOV4XrLuCDsJOnYoP';
 
     // --- Mobile WebView ------------------------------------------------------
 
-    janrain.settings.capture.redirectFlow = true;
-    janrain.settings.popup = false;
-    janrain.settings.tokenAction = 'url';
-    janrain.settings.capture.registerFlow = 'socialMobileRegistration'
+    //janrain.settings.capture.redirectFlow = true;
+    //janrain.settings.popup = false;
+    //janrain.settings.tokenAction = 'url';
+    //janrain.settings.capture.registerFlow = 'socialMobileRegistration'
 
     // --- Federate  -----------------------------------------------------------
 
@@ -91,8 +86,8 @@ For more information about these settings, see the following documents:
 
     // --- Load URLs -----------------------------------------------------------
 
-    var httpsLoadUrl = "https://rpxnow.com/load/ccna-test";
-    var httpLoadUrl = "http://widgets-cdn.rpxnow.com/load/ccna-test";
+    var httpsLoadUrl = "https://rpxnow.com/load/ccna-dev";
+    var httpLoadUrl = "http://widgets-cdn.rpxnow.com/load/ccna-dev";
 
     // --- DO NOT EDIT BELOW THIS LINE -----------------------------------------
 
