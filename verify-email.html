@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Add your own Capture event handlers. To see the full list, run the following in the browser console: janrain.events  -->
+    <script src="scripts/janrain-init.js"></script>
+	<script type="text/javascript">
+    // --- page-specific settings -------------------------------------
+        janrain.settings.capture.stylesheets = ['styles/janrain.css'];
+        janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
+        janrain.settings.capture.screenToRender = 'verifyEmail';
+
+		function janrainCaptureWidgetOnLoad() {
+            // --- define event handlers --------------------------------------
+			janrain.events.onCaptureScreenShow.addHandler(function(result){
+				if (result.screen == "returnTraditional") {
+					janrainReturnExperience();
+				}
+			});
+
+			janrain.capture.ui.start();
+		}
+	</script>
+
+</head>
+<body>
+
+	<!-- During the development process, the configuration code will be loaded from Janrain servers so that we can help you customize it. When your site is ready to go live, the following script tag will be replaced with your customized javascript and HTML markup to provide the fastest possible user experience. -->
+	<!-- <script src="http://pse.janrain.com/customer_dev/20a52726bb2e/scripts/verify-email.js" id="janrainCaptureDevScript"></script> -->
+
+	<!--  Inserted text from reset-password-layout.html  -->
+	<!--== EMAIL VERIFICATION ===================================================-->
+<div style="display:none;" id="verifyEmail">
+    <div class="capture_header">
+        <h1>Resend Email Verification</h1>
+    </div>
+    <p>Sorry we could not verify that email address. Enter your email below and we'll send you another email.</p>
+    {* #resendVerificationForm *}
+        {* traditionalSignIn_emailAddress *}
+        <div class="capture_footer">
+            {* submitButton *}
+        </div>
+     {* /resendVerificationForm *}
+</div>
+<div style="display:none;" id="verifyEmailSuccess">
+    <div class="capture_header">
+        <h1>You did it!</h1>
+    </div>
+    <p>Thank you for verifiying your email address.
+    <div class="capture_footer">
+        <a href="index.html">Back to Sign In</a>
+    </div>
+</div>
+
+
+<!--== SIGNIN ===============================================================-->
+<div style="display:none;" id="signIn">
+    <div class="capture_header">
+        <h1>Sign Up / Sign In</h1>
+    </div>
+    <div class="capture_signin">
+        <h2>With your existing account from...</h2>
+        {* loginWidget *}<br />
+    </div>
+    <div class="capture_backgroundColor">
+        <div class="capture_signin">
+            <h2>With a traditional account...</h2>
+                {* #userInformationForm *}
+                    {* traditionalSignIn_emailAddress *}
+                    {* traditionalSignIn_password *}
+                    <div class="capture_form_item">
+                        <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
+                    </div>
+                    <div class="capture_rightText">
+                        {* traditionalSignIn_signInButton *}
+                    </div>
+                {* /userInformationForm *}
+            <div class="capture_form_item">
+                <a href="#" data-capturescreen="traditionalRegistration">Not a member yet? Join now.</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:none;" id="returnSocial">
+    <div class="capture_header">
+        <h1>Sign In</h1>
+    </div>
+    <div class="capture_signin">
+        <h2>Welcome back, {* welcomeName *}!</h2>
+        {* loginWidget *}<br />
+        <div class="capture_centerText switchLink"><a href="#" data-cancelcapturereturnexperience="true">Use another account</a></div>
+    </div>
+</div>
+<div style="display:none;" id="returnTraditional">
+    <div class="capture_header">
+        <h1>Sign In</h1>
+    </div>
+    <h2 class="capture_centerText"><span id="traditionalWelcomeName">Welcome back!</span></h2>
+            <div class="capture_backgroundColor">
+                {* #userInformationForm *}
+                    {* traditionalSignIn_emailAddress *}
+                    {* traditionalSignIn_password *}
+                    <div class="capture_form_item">
+                        <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
+                    </div>
+                    <div class="capture_form_item capture_rightText">
+                        {* traditionalSignIn_signInButton *}
+                    </div>
+                {* /userInformationForm *}
+        <div class="capture_centerText switchLink"><a href="#" data-cancelcapturereturnexperience="true">Use another account</a></div>
+    </div>
+</div>
+
+
+<!--== SOCIAL REGISTRATION ==================================================-->
+<div style="display:none;" id="socialRegistration">
+    <div class="capture_header">
+        <h1>We need a little more...</h1>
+    </div>
+    <h2>Please confirm the information below before signing in.</h2>
+    {* socialProviderFullName *}
+    {* #socialRegistrationForm *}
+        {* socialRegistration_firstName *}
+        {* socialRegistration_lastName *}
+        {* socialRegistration_displayName *}
+        {* socialRegistration_emailAddress *}
+        {* birthdate *}
+        {* gender *}
+        {* address_address1 *}
+        {* address_address2 *}
+        {* address_city *}
+        {* address_state *}
+        {* address_zip *}
+        {* phone *}
+        {* residency *}
+        {* hidden_residencyData *}
+        {* hidden_languageData *}
+        {* hidden_accountStatus *}
+        {* hidden_provider *}
+        {* emailOptIn *}
+        By clicking "Join", you are confirming that you accept the 
+        <a href="#">Program Rules</a>,
+        <a href="#">Terms of Use</a>,
+        and <a href="#">Privacy Policy</a>.
+        <div class="capture_footer">
+            <div class="capture_right">
+                {* socialRegistration_signInButton *}
+            </div>
+        </div>
+    {* /socialRegistrationForm *}
+</div>
+
+
+<!--== TRADITIONAL REGISTRATION =============================================-->
+<div style="display:none;" id="traditionalRegistration">
+    <div class="capture_header">
+        <h1>Join</h1>
+    </div>
+    <p>Already have an member? <a href="#" data-capturescreen="signIn">Sign In.</a>
+    </p>
+    {* #registrationForm *}
+        {* traditionalRegistration_firstName *}
+        {* traditionalRegistration_lastName *}
+        {* traditionalRegistration_displayName *}
+        {* traditionalRegistration_emailAddress *}
+        {* traditionalRegistration_emailConfirm *}
+        {* traditionalRegistration_password *}
+        {* birthdate *}
+        {* gender *}
+        {* address_address1 *}
+        {* address_address2 *}
+        {* address_city *}
+        {* address_state *}
+        {* address_zip *}
+        {* residency *}
+        {* phone *}
+        {* hidden_residencyData *}
+        {* hidden_languageData *}
+        {* hidden_accountStatus *}
+        {* emailOptIn *}
+        By clicking "Join", you are confirming that you accept the 
+        <a href="#">Program Rules</a>,
+        <a href="#">Terms of Use</a>,
+        and <a href="#">Privacy Policy</a>.
+	    {* captcha *}
+        <div class="capture_footer">
+            {* createAccountButton *}
+        </div>
+    {* /registrationForm *}
+</div>
+
+<!--== USER TOO YOUNG =======================================================-->
+<div style="display:none;" id="registrationUnderage">
+    <p>We're sorry, but we can't accept your entry at this time, and have not retained any of your personal information.</p>
+</div>
+<!--== LEGAL ACCEPTANCES SCREEN ==================================================-->
+<div style="display:none;" id="legalAcceptances">
+    <div class="capture_header">
+        <h1>Legal Acceptance Screen</h1>
+    </div>
+    {* #legalAcceptancePostLoginForm *}
+        {* firstName *}
+        {* lastName *}
+        {* displayName *}
+        {* email_readOnly *}
+        {* address_address1 *}
+        {* address_address2 *}
+        {* address_city *}
+        {* address_state *}
+        {* address_zip *}
+        {* residency *}
+        {* hidden_accountStatus *}
+        {* hidden_residencyData *}
+        {* hidden_isResident *}
+        {* gender *}
+        {* phone *}
+        {* emailOptIn *}
+        By clicking "Join", you are confirming that you accept the
+        <a href="#">Program Rules</a>,
+        <a href="#">Terms of Use</a>,
+        and <a href="#">Privacy Policy</a>.
+        <div class="capture_footer">
+            {* legalAcceptanceAcceptButton *}
+        </div>
+    {* /legalAcceptancePostLoginForm *}
+</div>
+
+<!--== REQUIRED FIELDS ==================================================-->
+<div style="display:none;" id="requirementsScreen">
+    <div class="capture_header">
+        <h1>Requirements Screen</h1>
+    </div>
+    {* #requirementsForm *}
+        {* firstName *}
+        {* lastName *}
+        {* displayName *}
+        {* email_readOnly *}
+        {* birthdate *}
+        {* address_address1 *}
+        {* address_address2 *}
+        {* address_city *}
+        {* address_state *}
+        {* address_zip *}
+        {* residency *}
+        {* hidden_accountStatus *}
+        {* hidden_residencyData *}
+        {* hidden_isResident *}
+        {* gender *}
+        {* phone *}
+        {* emailOptIn *}
+        By clicking "Join", you are confirming that you accept the
+        <a href="#">Program Rules</a>,
+        <a href="#">Terms of Use</a>,
+        and <a href="#">Privacy Policy</a>.
+        <div class="capture_footer">
+            {* requirementsSubmitButton *}
+        </div>
+    {* /requirementsForm *}
+</div>
+
+<!--== FORGOT PASSWORD ======================================================-->
+<div style="display:none;" id="forgotPassword">
+    <div class="capture_header">
+        <h1>I Forgot My Password</h1>
+    </div>
+    <p>It's okay, we'll send you a reset form via email.</p>
+    {* #forgotPasswordForm *}
+        {* traditionalSignIn_emailAddress *}
+        {* captcha *}
+        <div class="capture_footer">
+            <div class="capture_right">
+                {* forgotPassword_sendButton *}
+            </div>
+        </div>
+    {* /forgotPasswordForm *}
+    <a href="#" data-capturescreen="signIn">Cancel</a>
+</div>
+<div style="display:none;" id="forgotPasswordSuccess">
+    <div class="capture_header">
+        <h1>Success!</h1>
+    </div>
+      <p>A link to reset your password is waiting in your inbox. Please click on the link to sign in to your account.</p>
+    <div class="capture_footer">
+        <a href="#" data-capturescreen="signIn">OK</a>
+    </div>
+</div>
+<div style="display:none;" id="mergeAccounts">
+    {* mergeAccounts {"custom": true} *}
+    <div id="capture_mergeAccounts_mergeAccounts_mergeOptionsContainer" class="capture_mergeAccounts_mergeOptionsContainer">
+        <h1>Uh-oh!</h1>
+        <div id="existing_account_found">
+            <p>We found an existing account for</p>
+            <p>{| current_emailAddress |}</p>
+        </div>
+        <div id="existing_account_info">
+            <p>{| current_displayName |}</p>
+            <p>{| existing_provider_emailAddress |}</p>
+            <p>Created on {| existing_createdDate |}</p>
+            <p>Type: Connected with {| current_provider_lowerCase |}</p>
+        </div>
+        <hr/>
+        <h2>Connect this session with your existing account?</h2>
+        <p>You will need to sign in to your existing account.</p>
+        <div class="capture_footer">
+            <a href="#" data-capturescreen="signIn">Cancel</a>
+            <button id="capture_mergeAccounts_mergeAccounts_connectButton" class="capture_mergeAccounts_connectButton capture_btn capture_primary" type="button" data-capturefield="mergeAccounts_connectButton" name="mergeAccounts_connectButton">Connect</button>
+        </div>
+    </div>
+</div>
+<div style="display:none;" id="traditionalAuthenticateMerge">
+    <div class="capture_header">
+        <h1>Sign in to complete account merge</h1>
+    </div>
+    <div class="capture_signin">
+    {* #tradAuthenticateMergeForm *}
+        {* traditionalSignIn_emailAddress *}
+        {* mergePassword *}
+        <div class="capture_footer">
+            <div class="capture_left">
+                {* backButton *}
+            </div>
+            <div class="capture_right">
+                {* traditionalSignIn_signInButton *}
+            </div>
+        </div>
+     {* /tradAuthenticateMergeForm *}
+    </div>
+</div>
+<div style="display:none;" id="emailVerificationScreen">
+    <div class="capture_header">
+        <h1>Confirm your email</h1>
+    </div>
+    <p>We've sent an email to the email address you've provided.</p>
+    <p>Click the link in the email to finish joining.</p>
+    <p>If you haven't received it, wait a few more minutes, or have us resend the link.</p>
+    {* #resendVerificationForm *}
+        <div class="capture_signin">
+            {* resendVerificationButton *}
+        </div>
+    {* /resendVerificationForm *}
+</div>
+<div style="display:none;" id="resendVerificationSuccess">
+    <div class="capture_header">
+        <h1>Success!</h1>
+    </div>
+    <p>A new confirmation link is waiting in your inbox. Please click on the link to confirm your email address.</p>
+</div>
+<div style="display:none;" id="linkSocialProfileScreen">
+    {* linkFacebook *}
+</div>
+
+</body>
+</html>
