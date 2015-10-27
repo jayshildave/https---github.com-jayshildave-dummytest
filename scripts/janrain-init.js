@@ -59,6 +59,7 @@ For more information about these settings, see the following documents:
     janrain.settings.popup = false;
     janrain.settings.tokenAction = 'url';
     janrain.settings.capture.registerFlow = 'socialMobileRegistration'
+    janrain.settings.redirectUri = location.href;
 
     // --- Federate  -----------------------------------------------------------
 
