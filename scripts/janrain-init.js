@@ -61,6 +61,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.registerFlow = 'socialMobileRegistration'
     janrain.settings.type = 'embed';
     janrain.settings.redirectUri = location.href;
+    janrain.settings.capture.redirectUri = location.href;
 
     // --- Federate  -----------------------------------------------------------
 
