@@ -22,7 +22,7 @@ For more information about these settings, see the following documents:
     // --- Engage Widget -------------------------------------------------------
 
     janrain.settings.language = 'en';
-    janrain.settings.appUrl = 'https://auth.mycokerewards.com';
+    janrain.settings.appUrl = 'https://ccna-testapp.rpxnow.com';
 
 //    janrain.settings.tokenAction = 'event';
     janrain.settings.borderColor = '#ffffff';
@@ -40,7 +40,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
     janrain.settings.tokenUrl = janrain.settings.capture.captureServer;
     janrain.settings.capture.redirectUri = location.href;
-    janrain.settings.capture.clientId = '35xtjyb9t659h47727rhpcmzv3vqktpc';
+    janrain.settings.capture.clientId = 'pqnww23bf2wvwtubr65ur7euexh256au';
     janrain.settings.capture.flowVersion = 'HEAD';
     janrain.settings.capture.registerFlow = 'socialRegistration';
     janrain.settings.capture.setProfileCookie = true;
@@ -88,8 +88,8 @@ For more information about these settings, see the following documents:
 
     // --- Load URLs -----------------------------------------------------------
 
-    var httpsLoadUrl = "https://rpxnow.com/load/ccna-dev";
-    var httpLoadUrl = "http://widgets-cdn.rpxnow.com/load/ccna-dev";
+    var httpsLoadUrl = "https://rpxnow.com/load/ccna-testapp";
+    var httpLoadUrl = "http://widgets-cdn.rpxnow.com/load/ccna-testapp";
 
     // --- DO NOT EDIT BELOW THIS LINE -----------------------------------------
 
