@@ -36,7 +36,7 @@ For more information about these settings, see the following documents:
     // --- Capture Widget ------------------------------------------------------
 
     janrain.settings.capture.flowName = 'ccna_default_v3_embedded';
-    janrain.settings.capture.appId = 'up7d9ae7uazsymyds8er4w6r3h';
+    janrain.settings.capture.appId = 'addofnmfibgnbbbmlegp';
     janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
     janrain.settings.tokenUrl = janrain.settings.capture.captureServer;
     janrain.settings.capture.redirectUri = location.href;
