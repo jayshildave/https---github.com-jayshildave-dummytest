@@ -57,7 +57,7 @@ For more information about these settings, see the following documents:
 
     janrain.settings.capture.redirectFlow = true;
     janrain.settings.popup = false;
-    janrain.settings.tokenAction = 'httpLoadUrl';
+    janrain.settings.tokenAction = 'httpsLoadUrl';
     janrain.settings.capture.registerFlow = 'socialMobileRegistration'
     janrain.settings.redirectUri = location.href;
 
