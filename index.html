@@ -87,7 +87,7 @@
             function janrainCaptureWidgetOnLoad() {
                 createJanrainBridge();
                 janrain.capture.ui.start();
-                janrain.capture.ui.createCaptureSession("accessToken");
+                <!--janrain.capture.ui.createCaptureSession("accessToken");-->
 
                 janrain.events.onCaptureSessionEnded.addHandler(function(result){
                     janrain.capture.ui.renderScreen('signIn')
