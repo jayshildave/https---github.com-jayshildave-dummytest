@@ -22,7 +22,7 @@
                 janrain.settings.capture.clientId = 'pqnww23bf2wvwtubr65ur7euexh256au';
                 janrain.settings.capture.responseType = 'token';
                 janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
-                janrain.settings.capture.registerFlow = 'socialMobileRegistration';
+                janrain.settings.capture.registerFlow = 'socialRegistration';
                 janrain.settings.capture.flowVersion = 'HEAD';
                 janrain.settings.capture.flowName = 'ccna_default_v3_embedded';
 
@@ -87,9 +87,11 @@
             function janrainCaptureWidgetOnLoad() {
                 createJanrainBridge();
                 janrain.capture.ui.start();
+                janrain.capture.ui.createCaptureSession("accessToken");
 
                 janrain.events.onCaptureSessionEnded.addHandler(function(result){
                     janrain.capture.ui.renderScreen('signIn')
+
                 });
             }
         </script>
