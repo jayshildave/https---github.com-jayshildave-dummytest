@@ -89,7 +89,7 @@ For more information about these settings, see the following documents:
     // --- Load URLs -----------------------------------------------------------
 
     var httpsLoadUrl = "https://rpxnow.com/load/ccna-testapp";
-    var httpLoadUrl = "http://widgets-cdn.rpxnow.com/load/ccna-testapp";
+    var httpLoadUrl = "http://rpxnow.com/load/ccna-testapp";
 
     // --- DO NOT EDIT BELOW THIS LINE -----------------------------------------
 
