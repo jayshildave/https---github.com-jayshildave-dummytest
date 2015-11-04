@@ -48,7 +48,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.modalCloseHtml = '<span class="janrain-icon-16 janrain-icon-ex2"></span>';
     janrain.settings.capture.noModalBorderInlineCss = true;
     janrain.settings.capture.responseType = 'token';
-//    janrain.settings.capture.returnExperienceUserData = ['displayName'];
+    janrain.settings.capture.returnExperienceUserData = ['displayName'];
     janrain.settings.capture.hasSettings = true;
     janrain.settings.capture.transactionTimeout = 10000;
     janrain.settings.capture.recaptchaPublicKey = '6LeVKb4SAAAAAGv-hg5i6gtiOV4XrLuCDsJOnYoP';
@@ -112,13 +112,13 @@ For more information about these settings, see the following documents:
     s.parentNode.insertBefore(e, s);
 })();
 
-//function janrainReturnExperience() {
-//	var span = document.getElementById('traditionalWelcomeName');
-//	var name = janrain.capture.ui.getReturnExperienceData("displayName");
-//	if (span && name) {
-//		span.innerHTML = "Welcome back, " + name + "!";
-//	}
-//}
+function janrainReturnExperience() {
+	var span = document.getElementById('traditionalWelcomeName');
+	var name = janrain.capture.ui.getReturnExperienceData("displayName");
+	if (span && name) {
+		span.innerHTML = "Welcome back, " + name + "!";
+	}
+}
 
 function passwordValidation(name, value, validation) {
     return /(?=^.{8,21}$)(?=(?:.*?\d){1})(?=.*[A-Z]{1})(?!.*\s)[0-9a-zA-Z!@#$%^&*()<>_-]*$/.test(value);
