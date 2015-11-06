@@ -92,7 +92,15 @@
                 janrain.events.onCaptureSessionEnded.addHandler(function(result){
                     janrain.capture.ui.renderScreen('signIn')
 
+
+
                 });
+
+                janrain.events.onCaptureLoginSuccess.addHandler(function(result){
+                    console.log('onCaptureLoginSuccess');
+                    if(result) console.log(result);
+                });
+
             }
         </script>
     </head>
