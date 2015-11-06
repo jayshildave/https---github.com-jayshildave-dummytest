@@ -96,10 +96,414 @@
 
                 });
 
+                //---- AUTH EVENTS -------------------------------------------------------------
+                janrain.events.onAuthWidgetContentPlaced.addHandler(function(result){
+                    console.log('onAuthWidgetContentPlaced');
+                    if(result) console.log(result);
+                });
+                janrain.events.onAuthWidgetLoad.addHandler(function(result){
+                    console.log('onAuthWidgetLoad');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE MISC EVENTS -----------------------------------------------------
+                janrain.events.onCaptureAutoSaveUpdate.addHandler(function(result){
+                    console.log('onCaptureAutoSaveUpdate');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureContentChange.addHandler(function(result){
+                    console.log('onCaptureContentChange');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureControlFailed.addHandler(function(result){
+                    console.log('onCaptureControlFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureControlSuccesss.addHandler(function(result){
+                    console.log('onCaptureControlSuccesss');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureCustomEvent.addHandler(function(result){
+                    console.log('onCaptureCustomEvent');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureError.addHandler(function(result){
+                    console.log('onCaptureError');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureExpiredToken.addHandler(function(result){
+                    console.log('onCaptureExpiredToken');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureFormError.addHandler(function(result){
+                    console.log('onCaptureFormError');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureInvalidToken.addHandler(function(result){
+                    console.log('onCaptureInvalidToken');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureLinkAccountError.addHandler(function(result){
+                    console.log('onCaptureLinkAccountError');
+                    if(result) console.log(result);
+                    $('#socialNetworks').prepend('<div id="linkAccountErrorMessage"><p>'+result.message+'</p><span class="dismissMessage"></span></div>');
+                    $('body').on('click', '.dismissMessage', function(){
+                        $(this).parent().remove();
+                    });
+                });
+                janrain.events.onCaptureModalReady.addHandler(function(result){
+                    console.log('onCaptureModalReady');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureScreenShow.addHandler(function(result){
+                    console.log('onCaptureScreenShow');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureServerValidationFailed.addHandler(function(result){
+                    console.log('onCaptureServerValidationFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureSubscriptionUpdate.addHandler(function(result){
+                    console.log('onCaptureSubscriptionUpdate');
+                    if(result) console.log(result);
+                });
+
+
+
+                //---- CAPTURE ACCOUNT EVENTS --------------------------------------------------
+                janrain.events.onCaptureAccessDenied.addHandler(function(result){
+                    console.log('onCaptureAccessDenied');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureAccountDeactivateFailed.addHandler(function(result){
+                    console.log('onCaptureAccountDeactivateFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureAccountDeactivateSuccess.addHandler(function(result){
+                    console.log('onCaptureAccountDeactivateSuccess');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureAccountReactivateFailed.addHandler(function(result){
+                    console.log('onCaptureAccountReactivateFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureAccountReactivateSuccess.addHandler(function(result){
+                    console.log('onCaptureAccountReactivateSuccess');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE BACKPLANE EVENTS ------------------------------------------------
+                janrain.events.onCaptureBackplaneInitFailed.addHandler(function(result){
+                    console.log('onCaptureBackplaneInitFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureBackplaneReady.addHandler(function(result){
+                    console.log('onCaptureBackplaneReady');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE EMAIL EVENTS ----------------------------------------------------
+                janrain.events.onCaptureEmailSent.addHandler(function(result){
+                    console.log('onCaptureEmailSent');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureEmailVerficationSuccess.addHandler(function(result){
+                    console.log('onCaptureEmailVerficationSuccess');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureEmailVerificationFailed.addHandler(function(result){
+                    console.log('onCaptureEmailVerificationFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureEmailVerificationSuccess.addHandler(function(result){
+                    console.log('onCaptureEmailVerificationSuccess');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE FEDERATE EVENTS -------------------------------------------------
+                janrain.events.onCaptureFederateLogin.addHandler(function(result){
+                    console.log('onCaptureFederateLogin');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureFederateNoLogin.addHandler(function(result){
+                    console.log('onCaptureFederateNoLogin');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureFederateRefreshedToken.addHandler(function(result){
+                    console.log('onCaptureFederateRefreshedToken');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE FORGOT PASSWORD EVENTS ------------------------------------------
+                janrain.events.onCaptureForgotPasswordCodeFailed.addHandler(function(result){
+                    console.log('onCaptureForgotPasswordCodeFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureForgotPasswordCodeSuccess.addHandler(function(result){
+                    console.log('onCaptureForgotPasswordCodeSuccess');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE LOGIN EVENTS ----------------------------------------------------
+                janrain.events.onCaptureLoginFailed.addHandler(function(result){
+                    console.log('onCaptureLoginFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureLoginStart.addHandler(function(result){
+                    console.log('onCaptureLoginStart');
+                    if(result) console.log(result);
+                });
                 janrain.events.onCaptureLoginSuccess.addHandler(function(result){
                     console.log('onCaptureLoginSuccess');
                     if(result) console.log(result);
                 });
+
+
+
+
+                //---- CAPTURE PROFILE EVENTS --------------------------------------------------
+                janrain.events.onCaptureProfileCookieSet.addHandler(function(result){
+                    console.log('onCaptureProfileCookieSet');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureProfileLink.addHandler(function(result){
+                    console.log('onCaptureProfileLink');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureProfileSaveFailed.addHandler(function(result){
+                    console.log('onCaptureProfileSaveFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureProfileSaveSuccess.addHandler(function(result){
+                    console.log('onCaptureProfileSaveSuccess');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureProfileUnlink.addHandler(function(result){
+                    console.log('onCaptureProfileUnlink');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE REGISTRATION EVENTS ---------------------------------------------
+                janrain.events.onCaptureRegistrationFailed.addHandler(function(result){
+                    console.log('onCaptureRegistrationFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureRegistrationStart.addHandler(function(result){
+                    console.log('onCaptureRegistrationStart');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureRegistrationSuccess.addHandler(function(result){
+                    console.log('onCaptureRegistrationSuccess');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE RENDER EVENTS ---------------------------------------------------
+                janrain.events.onCaptureRenderComplete.addHandler(function(result){
+                    console.log('onCaptureRenderComplete');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureRenderStart.addHandler(function(result){
+                    console.log('onCaptureRenderStart');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE SAVE EVENTS -----------------------------------------------------
+                janrain.events.onCaptureSaveFailed.addHandler(function(result){
+                    console.log('onCaptureSaveFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureSaveSuccess.addHandler(function(result){
+                    console.log('onCaptureSaveSuccess');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE SESSION EVENTS --------------------------------------------------
+                janrain.events.onCaptureSessionCreated.addHandler(function(result){
+                    console.log('onCaptureSessionCreated');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureSessionEnded.addHandler(function(result){
+                    console.log('onCaptureSessionEnded');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureSessionFound.addHandler(function(result){
+                    console.log('onCaptureSessionFound');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureSessionNotFound.addHandler(function(result){
+                    console.log('onCaptureSessionNotFound');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE TRANSACTION EVENTS ----------------------------------------------
+                janrain.events.onCaptureTransactionTimeout.addHandler(function(result){
+                    console.log('onCaptureTransactionTimeout');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureValidationComplete.addHandler(function(result){
+                    console.log('onCaptureValidationComplete');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureValidationFailed.addHandler(function(result){
+                    console.log('onCaptureValidationFailed');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCaptureValidationSuccess.addHandler(function(result){
+                    console.log('onCaptureValidationSuccess');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- PAGE EVENTS -------------------------------------------------------------
+                janrain.events.onCssLoad.addHandler(function(result){
+                    console.log('onCssLoad');
+                    if(result) console.log(result);
+                });
+                janrain.events.onCustomizationChange.addHandler(function(result){
+                    console.log('onCustomizationChange');
+                    if(result) console.log(result);
+                });
+                janrain.events.onModalClose.addHandler(function(result){
+                    console.log('onModalClose');
+                    if(result) console.log(result);
+                });
+                janrain.events.onModalOpen.addHandler(function(result){
+                    console.log('onModalOpen');
+                    if(result) console.log(result);
+                });
+                janrain.events.onModalWidgetReady.addHandler(function(result){
+                    console.log('onModalWidgetReady');
+                    if(result) console.log(result);
+                });
+                janrain.events.onReturnExperienceFound.addHandler(function(result){
+                    console.log('onReturnExperienceFound');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- PROVIDER EVENTS ---------------------------------------------------------
+                janrain.events.onProviderLoginCancel.addHandler(function(result){
+                    console.log('onProviderLoginCancel');
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLoginComplete.addHandler(function(result){
+                    console.log('onProviderLoginComplete');
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLoginError.addHandler(function(result){
+                    console.log('onProviderLoginError');
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLoginStart.addHandler(function(result){
+                    console.log('onProviderLoginStart');
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLoginSuccess.addHandler(function(result){
+                    console.log('onProviderLoginSuccess');
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLoginToken.addHandler(function(result){
+                    console.log('onProviderLoginToken: ',result);
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLogoutComplete.addHandler(function(result){
+                    console.log('onProviderLogoutComplete');
+                    if(result) console.log(result);
+                });
+                janrain.events.onProviderLogoutStart.addHandler(function(result){
+                    console.log('onProviderLogoutStart');
+                    if(result) console.log(result);
+                });
+
+
+
+
+                //---- CAPTURE EVENTS ---------------------------------------------------------
+                janrain.events.onCaptureLoginSuccess.addHandler(function(result){
+                    janrain.capture.ui.renderScreen("signIn")
+                    if (window.console && window.console.log) console.log(result);
+                    // document.getElementById("capture_signin_link").style.display='none';
+                    // document.getElementById("capture_signout_link").style.display='';
+                    // document.getElementById("capture_profile_link").style.display='';
+                    document.location='ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
+
+                });
+                janrain.events.onCaptureSessionFound.addHandler(function(result){
+                    janrain.capture.ui.modal.close();
+                    if (window.console && window.console.log) console.log(result);
+                    document.getElementById("capture_signin_link").style.display='none';
+                    document.getElementById("capture_signout_link").style.display='';
+                    document.getElementById("capture_profile_link").style.display='';
+                });
+                janrain.events.onCaptureRegistrationSuccess.addHandler(function(result){
+                    janrain.capture.ui.modal.close();
+                    if (window.console && window.console.log) console.log(result);
+                    // document.getElementById("capture_signin_link").style.display='none';
+                    // document.getElementById("capture_signout_link").style.display='';
+                    // document.getElementById("capture_profile_link").style.display='';
+                    document.location='ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
+                });
+                janrain.events.onCaptureSessionEnded.addHandler(function(result){
+                    document.getElementById("capture_signin_link").style.display='';
+                    document.getElementById("capture_signout_link").style.display='none';
+                    document.getElementById("capture_profile_link").style.display='none';
+                });
+                janrain.events.onCaptureScreenShow.addHandler(function(result){
+                    if (result.screen == "returnTraditional") {
+                        janrainReturnExperience();
+                    }
+                });
+                // Handle redirect if user receieved the MCR requirements screen.
+                janrain.events.onCaptureProfileSaveSuccess.addHandler(function(result){
+                    if (window.console && window.console.log) console.log(result);
+                    document.getElementById("capture_signin_link").style.display='none';
+                    document.getElementById("capture_signout_link").style.display='';
+                    document.getElementById("capture_profile_link").style.display='';
+                });
+                janrain.events.onCaptureAccessDenied.addHandler(function(){
+                    window.location = 'index.html';
+                });
+                janrain.events.onCaptureExpiredToken.addHandler(function(){
+                    window.location = 'index.html';
+                });
+
 
             }
         </script>
