@@ -38,7 +38,7 @@ For more information about these settings, see the following documents:
     janrain.settings.capture.flowName = 'ccna_default_v3_embedded';
     janrain.settings.capture.appId = 'up7d9ae7uazsymyds8er4w6r3h';
     janrain.settings.capture.captureServer = 'https://ccna-test.janraincapture.com';
-    janrain.settings.capture.redirectUri = 'http://localhost/';
+    janrain.settings.capture.redirectUri = location.href;
     janrain.settings.capture.clientId = 'pqnww23bf2wvwtubr65ur7euexh256au';
     janrain.settings.capture.flowVersion = 'HEAD';
     janrain.settings.capture.registerFlow = 'socialRegistration';
