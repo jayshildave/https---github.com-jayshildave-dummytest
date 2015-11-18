@@ -9,7 +9,9 @@
         janrain.settings.capture.stylesheets = ['styles/janrain.css'];
         janrain.settings.capture.mobileStylesheets = ['styles/janrain-mobile.css'];
 
-		function janrainCaptureWidgetOnLoad() {
+        function janrainCaptureWidgetOnLoad() {
+            createJanrainBridge();
+
             // --- define event handlers --------------------------------------
 			janrain.events.onCaptureLoginSuccess.addHandler(function(result){
 				document.getElementById("signIn").style.display='none';
@@ -65,7 +67,60 @@
 
             janrain.capture.ui.registerFunction('passwordValidation', passwordValidation);
 			janrain.capture.ui.registerFunction('emailValidation', emailValidation);
-            janrain.capture.ui.registerFunction('addressValidation', addressValidation);
+			janrain.capture.ui.registerFunction('addressValidation', addressValidation);
+
+
+		    ///added by parveen
+		    //---- CAPTURE EVENTS ---------------------------------------------------------
+			janrain.events.onCaptureLoginSuccess.addHandler(function (result) {
+			    janrain.capture.ui.renderScreen("signIn")
+			    if (window.console && window.console.log) console.log(result);
+			    // document.getElementById("capture_signin_link").style.display='none';
+			    // document.getElementById("capture_signout_link").style.display='';
+			    // document.getElementById("capture_profile_link").style.display='';
+			    document.location = 'ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
+
+			});
+			janrain.events.onCaptureSessionFound.addHandler(function (result) {
+			    janrain.capture.ui.modal.close();
+			    if (window.console && window.console.log) console.log(result);
+			    document.getElementById("capture_signin_link").style.display = 'none';
+			    document.getElementById("capture_signout_link").style.display = '';
+			    document.getElementById("capture_profile_link").style.display = '';
+			});
+			janrain.events.onCaptureRegistrationSuccess.addHandler(function (result) {
+			    janrain.capture.ui.modal.close();
+			    if (window.console && window.console.log) console.log(result);
+			    // document.getElementById("capture_signin_link").style.display='none';
+			    // document.getElementById("capture_signout_link").style.display='';
+			    // document.getElementById("capture_profile_link").style.display='';
+			    document.location = 'ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
+			});
+			janrain.events.onCaptureSessionEnded.addHandler(function (result) {
+			    document.getElementById("capture_signin_link").style.display = '';
+			    document.getElementById("capture_signout_link").style.display = 'none';
+			    document.getElementById("capture_profile_link").style.display = 'none';
+			});
+			janrain.events.onCaptureScreenShow.addHandler(function (result) {
+			    if (result.screen == "returnTraditional") {
+			        janrainReturnExperience();
+			    }
+			});
+		    // Handle redirect if user receieved the MCR requirements screen.
+			janrain.events.onCaptureProfileSaveSuccess.addHandler(function (result) {
+			    if (window.console && window.console.log) console.log(result);
+			    document.getElementById("capture_signin_link").style.display = 'none';
+			    document.getElementById("capture_signout_link").style.display = '';
+			    document.getElementById("capture_profile_link").style.display = '';
+			});
+			janrain.events.onCaptureAccessDenied.addHandler(function () {
+			    window.location = 'index.html';
+			});
+			janrain.events.onCaptureExpiredToken.addHandler(function () {
+			    window.location = 'index.html';
+			});
+
+            //end by parveen
             
 			janrain.capture.ui.start();
 		}
@@ -394,7 +449,7 @@
     {* linkFacebook *}
 </div>
 
-
+    <script src="janrain-bridge.js"></script>
 
 </body>
 </html>
