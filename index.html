@@ -78,7 +78,7 @@
 			    // document.getElementById("capture_signin_link").style.display='none';
 			    // document.getElementById("capture_signout_link").style.display='';
 			    // document.getElementById("capture_profile_link").style.display='';
-			    document.location = 'ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
+			    // document.location = 'ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
 
 			});
 			janrain.events.onCaptureSessionFound.addHandler(function (result) {
@@ -94,7 +94,7 @@
 			    // document.getElementById("capture_signin_link").style.display='none';
 			    // document.getElementById("capture_signout_link").style.display='';
 			    // document.getElementById("capture_profile_link").style.display='';
-			    document.location = 'ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
+			    // document.location = 'ccfs://localhost/auth/signIn?accessToken=' + encodeURIComponent(result.accessToken) + '&uuid=' + encodeURIComponent(result.userData.uuid) + '&displayName=' + encodeURIComponent(result.userData.displayName);
 			});
 			janrain.events.onCaptureSessionEnded.addHandler(function (result) {
 			    document.getElementById("capture_signin_link").style.display = '';
